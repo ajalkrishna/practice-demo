@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg bg-secondary">
+  <div class="container">
+    <LinkTo class="navbar-brand text-white fw-bold" @route="index">Xpencer</LinkTo>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <LinkTo class="nav-link" @route="index">Home</LinkTo>
+        </li>
+        
+        <li class="nav-item">
+          <LinkTo class="nav-link" @route="expense">Expense</LinkTo>
+        </li>
+
+        <li class="nav-item">
+          <LinkTo class="nav-link" @route="analysis">Analysis</LinkTo>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

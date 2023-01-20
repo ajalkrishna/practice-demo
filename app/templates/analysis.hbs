@@ -1,0 +1,20 @@
+<div class="container col-6">
+    <h2>{{this.tableheading}}</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each @model as |fruit|}}
+                <tr>
+                    <td>{{fruit.first}}</td>
+                    {{!-- template-lint-disable no-invalid-interactive --}}
+                    <td {{on 'click' (fn this.showMyName fruit.second)}}>{{fruit.second}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
