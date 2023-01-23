@@ -1,0 +1,10 @@
+.analysis_page form {
+    padding: 2rem;
+    background-color: rgba(250, 235, 215, 0.523);
+}
+
+.analysis_page form .form-control{
+    border-radius: 0;
+    box-shadow: none;
+
+}

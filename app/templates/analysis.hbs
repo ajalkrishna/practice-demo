@@ -1,20 +1,56 @@
-<div class="container col-6">
-    <h2>{{this.tableheading}}</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each @model as |fruit|}}
-                <tr>
-                    <td>{{fruit.first}}</td>
-                    {{!-- template-lint-disable no-invalid-interactive --}}
-                    <td {{on 'click' (fn this.showMyName fruit.second)}}>{{fruit.second}}</td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
+<div class="container analysis_page">
+    <div class="row">
+        <div class="col-6">
+            <form {{on 'submit' this.submitEntry}} >
+                <h4 class="lead">Fruit Form</h4>
+                <hr>
+                <div class="mb-3">
+                    <label for="fruitName">Fruit Name</label>
+                    <Input @type="text" @value={{this.fruitName}} id="fruitName" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="quantity">Quantity</label>
+                    <Input @type="number" @value={{this.quantity}} id="quantity" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="price">Price</label>
+                    <Input @type="number" @value={{this.price}} id="price" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+
+        </div>
+        <div class="col-6">
+            <h2 class="text-primary">{{this.tableheading}}</h2>
+            <table class="table table-bordered text-center">
+                <thead class="bg-light ">
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.fruitData as |fruit index|}}
+                    <tr>
+                        <td>{{index}}</td>
+                        <td>{{fruit.name}}</td>
+                        <td>{{fruit.qty}}</td>
+                        <td>{{fruit.price}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
+{{!-- <div class="mx-auto">
+    <h2 class="text-center">{{this.count}}</h2>
+    <Input @type="number" id="increse" @value={{this.count}}/>
+    <button type="button" class="btn btn-warning d-block mx-auto" {{on 'click' this.increment}}>Increse</button>
+</div> --}}
