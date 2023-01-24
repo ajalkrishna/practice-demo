@@ -21,6 +21,10 @@
 
                 <button type="submit" class="btn btn-primary w-100">Submit</button>
             </form>
+            {{#if this.yetToEdit}}
+                <button type="button" class="btn btn-secondary w-100" {{on 'click' this.modifyData}}>Confirm Edit</button>
+                                
+            {{/if}}
 
         </div>
         <div class="col-6">
@@ -32,15 +36,19 @@
                         <th scope="col">Name</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each this.fruitData as |fruit index|}}
+                    {{#each @model as |fruit index|}}
                     <tr>
                         <td>{{index}}</td>
                         <td>{{fruit.name}}</td>
-                        <td>{{fruit.qty}}</td>
+                        <td>{{fruit.quantity}}</td>
                         <td>{{fruit.price}}</td>
+                        <td><button type="button" {{on 'click' (fn this.editFruit fruit)}}>Edit</button></td>
+                        <td><button type="button" {{on 'click' (fn this.deleteFruit fruit.id)}}>Delete</button></td>
                     </tr>
                     {{/each}}
                 </tbody>
